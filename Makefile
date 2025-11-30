@@ -9,6 +9,9 @@ OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+           --track-origins=yes
+
 all: $(NAME)
 
 %.o : %.c
@@ -21,8 +24,21 @@ $(NAME) : $(OBJS) $(LIBFT)
 	@cp $(LIBFT) $@
 	@ar rcs $(NAME) $(OBJS)
 
+main.o: main.c
+	@$(CC) $(CFLAGS) -I. -c main.c -o main.o
+
+test: $(NAME) main.o
+	@$(CC) main.o $(NAME) -o test.o
+	@./test.o
+
+valg: $(NAME) main.o
+	@$(CC) main.o $(NAME) -o test.o
+	@echo "Running Valgrind..."
+	@$(VALGRIND) ./test.o 2>&1 | tee valgrind_report.txt
+
 clean: 
 	@rm -rf $(OBJS)
+	@rm -rf test.o
 	@$(MAKE) -s -C $(LIBFT_DIR) $@
 
 fclean: clean
