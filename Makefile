@@ -4,6 +4,8 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror 
 
+# My wife is very pretty
+
 SRCS = ft_printf.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = ./libft
