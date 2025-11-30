@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 18:08:00 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/11/30 17:46:47 by tchumbas         ###   ########.fr       */
+/*   Created: 2025/11/30 15:43:56 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/11/30 18:02:58 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include "./libft/libft.h"
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
-
-int	ft_printf(const char *format, ...);
-int	ft_printchr(char c);
-
-#endif
+int	ft_printchr(char c)
+{
+	return (write(1, &c, 1));
+}

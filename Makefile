@@ -4,14 +4,12 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-# My wife is very pretty
-
-SRCS = ft_printf.c
+SRCS = ft_printf.c ./prints/ft_printchr.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-VALGRIND = valgrind --leak-check=full --show-leak-kinds=all \
+VALGRIND = valgrind -s --leak-check=full --show-leak-kinds=all \
            --track-origins=yes
 
 all: $(NAME)

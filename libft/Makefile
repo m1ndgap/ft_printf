@@ -45,7 +45,6 @@ all: $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS)
-	ls -la
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
