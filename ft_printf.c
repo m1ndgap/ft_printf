@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/21 18:06:09 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/11/30 14:24:14 by tchumbas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static int output_id(const char *format, va_list args)
+{
+	int len;
+
+	len = 0;
+
+}
+
+int		ft_printf(const char *format, ...)
+{
+	va_list args;
+	int i;
+
+	if (!format)
+		return (1);
+	i=0;
+	va_start(args, format);
+	while (format[i]){
+		printf("%c", format[i]);
+	}
+	return (1);
+}
