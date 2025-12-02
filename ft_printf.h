@@ -6,7 +6,7 @@
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 18:08:00 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/02 15:31:45 by tchumbas         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:20:44 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int	printbase(t_long n, t_long value, char *symbols);
 int	printstr(const char *str);
 int	printnbr(int n);
 int	printadr(void *ptr);
-
 
 #endif

@@ -25,7 +25,7 @@ $(NAME) : $(OBJS) $(LIBFT)
 	@ar rcs $(NAME) $(OBJS)
 
 main.o: main.c
-	@$(CC) $(CFLAGS) -I. -c main.c -o main.o
+	@$(CC) -I. -c main.c -o main.o
 
 test: $(NAME) main.o
 	@$(CC) main.o $(NAME) -o test.o
@@ -34,11 +34,13 @@ test: $(NAME) main.o
 valg: $(NAME) main.o
 	@$(CC) main.o $(NAME) -o test.o
 	@echo "Running Valgrind..."
-	@$(VALGRIND) ./test.o 2>&1 | tee valgrind_report.txt
+	@$(VALGRIND) ./test.o 2>&1 | tee valgrind_report.log
 
 clean: 
 	@rm -rf $(OBJS)
 	@rm -rf test.o
+	@rm -rf main.o
+	@rm -rf valgrind_report.log
 	@$(MAKE) -s -C $(LIBFT_DIR) $@
 
 fclean: clean
