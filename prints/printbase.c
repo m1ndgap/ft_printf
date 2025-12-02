@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printbase.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 18:08:00 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/02 15:31:45 by tchumbas         ###   ########.fr       */
+/*   Created: 2025/12/02 15:21:36 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/12/02 15:35:18 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include "./libft/libft.h"
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
+int	printbase(t_long n, t_long value, char *symbols)
+{
+	int		i;
 
-typedef unsigned long long	t_long;
-
-int	ft_printf(const char *format, ...);
-int	printchr(char c);
-int	printbase(t_long n, t_long value, char *symbols);
-int	printstr(const char *str);
-int	printnbr(int n);
-int	printadr(void *ptr);
-
-
-#endif
+	i = 0;
+	if (n >= value)
+		i += printbase(n / value, value, symbols);
+	i += printchr(symbols[n % value]);
+	return (i);
+}

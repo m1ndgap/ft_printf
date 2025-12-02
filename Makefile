@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-SRCS = ft_printf.c ./prints/ft_printchr.c
+SRCS = ft_printf.c ./prints/printchr.c ./prints/printbase.c ./prints/printstr.c ./prints/printnbr.c ./prints/printadr.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printnbr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 18:08:00 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/12/02 15:31:45 by tchumbas         ###   ########.fr       */
+/*   Created: 2025/12/02 15:21:40 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/12/02 15:39:02 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include "./libft/libft.h"
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
+int	printnbr(int n)
+{
+	long	nb;
+	int		i;
 
-typedef unsigned long long	t_long;
-
-int	ft_printf(const char *format, ...);
-int	printchr(char c);
-int	printbase(t_long n, t_long value, char *symbols);
-int	printstr(const char *str);
-int	printnbr(int n);
-int	printadr(void *ptr);
-
-
-#endif
+	i = 0;
+	nb = n;
+	if (nb < 0)
+	{
+		i += printchr('-');
+		nb = -nb;
+	}
+	if (nb > 9)
+		i += printnbr(nb / 10);
+	i += printchr((nb % 10) + 48);
+	return (i);
+}

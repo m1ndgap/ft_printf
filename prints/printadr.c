@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchr.c                                      :+:      :+:    :+:   */
+/*   printadr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchumbas <tchumbas@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 15:43:56 by tchumbas          #+#    #+#             */
-/*   Updated: 2025/11/30 18:02:58 by tchumbas         ###   ########.fr       */
+/*   Created: 2025/12/02 15:21:39 by tchumbas          #+#    #+#             */
+/*   Updated: 2025/12/02 15:40:02 by tchumbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printchr(char c)
+int	printadr(void *ptr)
 {
-	return (write(1, &c, 1));
+	t_long addres;
+	int count;
+
+	if (!ptr)
+		return (printstr("(nil)"));
+	count = 0;
+	addres = (t_long)ptr;
+	count += printstr("0x");
+	count += printbase(addres, 16, "0123456789abcdef");
+	return (count);
 }
